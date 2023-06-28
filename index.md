@@ -392,7 +392,7 @@
 > 
 > - `Mixture`：原始混合音乐；
 > 
-> - `ResUNetDecouple+`和`HDemucs`表示仅使用ResUNetDecouple+模型或HDemucs分离混合音乐`Mixture`得到bass乐器声；
+> - `ResUNetDecouple+`和`HDemucs`表示仅使用ResUNetDecouple+模型或HDemucs分离混合音乐`Mixture`得到drums乐器声；
 > 
 > - 向ResUNetDecouple+模型中引入drums特征嵌入的不同方法：
 >   
@@ -623,3 +623,458 @@
     </table>
 </div>
     
+#### piano
+> 本部分的案例名称含义如下：
+> 
+> - `Mixture`：原始混合音乐；
+> 
+> - `ResUNetDecouple+`和`HDemucs`表示仅使用ResUNetDecouple+模型或HDemucs分离混合音乐`Mixture`得到piano乐器声；
+> 
+> - 向ResUNetDecouple+模型中引入piano特征嵌入的不同方法：
+>   
+>   - `Res_pre`：向ResUNetDecouple+模型中引入预训练好的(`pre`)的piano乐器分类特征嵌入；
+>   
+>   - `Res_fnt`：向ResUNetDecouple+模型中引入微调的(`fnt`)的piano乐器分类特征嵌入;
+> 
+> - 向HDemucs模型中引入drums特征嵌入的不同方法：
+>   
+>   - `HD_pre`：向HDemucs模型中引入预训练好的(`pre`)的piano乐器分类特征嵌入。
+
+
+##### Case 1
+
+
+<div align='center'>
+<table style="margin: 0,auto; align:center; vertical-align:middle; border: none!important">
+    <tr>
+        <td align='center'> <b>Mixture</b> </td>
+        <td> <img src='./img/piano/spec/931_mix_1.PNG'  alt='931_mix_1' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>Reference</b> </td>
+        <td> <img src='./img/piano/spec/931_piano_1.PNG'  alt='931_piano_1' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='middle'> <b>ResUNetDecouple+</b> </td>
+        <td> <img src='./img/piano/spec/931_Res_1.PNG'  alt='931_Res_1' width='100%'></td>
+    </tr>
+    <tr>
+        <td align='center'> <b>Res_pre</b> </td>
+        <td> <img src='./img/piano/spec/931_Res_pre_1.PNG'  alt='931_Res_pre_1' width='100%'></td>
+    </tr>
+    <tr>
+        <td align='center'> <b>Res_tim_pre</b> </td>
+        <td> <img src='./img/piano/spec/931_Res_fnt_1.PNG'  alt='931_Res_fnt_1' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>HDemucs</b> </td>
+        <td> <img src='./img/piano/spec/931_HD_1.PNG'  alt='931_HD_1' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>HD_pre</b></td>
+        <td> <img src='./img/piano/spec/931_HD_pre_1.PNG'  alt='931_HD_pre_1' width='100%'></td>
+    </tr>
+</table>
+  
+  
+ 
+<table style="margin-left: auto; margin-right: auto; align:center; border: none!important; width: 100%">
+    <tr>
+        <td align='center'>Mixture</td>
+        <td align='center'>ResUNetDecouple+</td>
+        <td align='center'>Res_pre</td>
+    </tr>
+    <tr>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_mix_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_Res_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_Res_pre_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    </tr>
+	<tr>
+        <td align='center'>Res_fnt</td>
+        <td align='center'> </td>
+        <td align='center'> </td>
+    </tr>
+    <tr>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_Res_fnt_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+         
+        </td>
+    	<td align='center' width='30%'>
+         
+        </td>
+    </tr>
+    <tr>
+    <td align='center'>Reference</td>
+    <td align='center'>HDemucs</td>
+    <td align='center'>HD_pre</td>
+    </tr>
+    <tr>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_piano_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_HD_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_HD_pre_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    </tr>
+    </table>
+</div>
+
+
+##### Case 2
+
+<div align='center'>
+<table style="margin: 0,auto; align:center; vertical-align:middle; border: none!important">
+    <tr>
+        <td align='center'> <b>Mixture</b> </td>
+        <td> <img src='./img/piano/spec/931_mix_2.PNG'  alt='931_mix_2' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>Reference</b> </td>
+        <td> <img src='./img/piano/spec/931_piano_2.PNG'  alt='931_piano_2' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='middle'> <b>ResUNetDecouple+</b> </td>
+        <td> <img src='./img/piano/spec/931_Res_2.PNG'  alt='931_Res_2' width='100%'></td>
+    </tr>
+    <tr>
+        <td align='center'> <b>Res_pre</b> </td>
+        <td> <img src='./img/piano/spec/931_Res_pre_2.PNG'  alt='931_Res_pre_2' width='100%'></td>
+    </tr>
+    <tr>
+        <td align='center'> <b>Res_tim_pre</b> </td>
+        <td> <img src='./img/piano/spec/931_Res_fnt_2.PNG'  alt='931_Res_fnt_2' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>HDemucs</b> </td>
+        <td> <img src='./img/piano/spec/931_HD_2.PNG'  alt='931_HD_2' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>HD_pre</b></td>
+        <td> <img src='./img/piano/spec/931_HD_pre_2.PNG'  alt='931_HD_pre_2' width='100%'></td>
+    </tr>
+</table>
+  
+  
+ 
+<table style="margin-left: auto; margin-right: auto; align:center; border: none!important; width: 100%">
+    <tr>
+        <td align='center'>Mixture</td>
+        <td align='center'>ResUNetDecouple+</td>
+        <td align='center'>Res_pre</td>
+    </tr>
+    <tr>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_mix_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_Res_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_Res_pre_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    </tr>
+	<tr>
+        <td align='center'>Res_fnt</td>
+        <td align='center'> </td>
+        <td align='center'> </td>
+    </tr>
+    <tr>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_Res_fnt_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+         
+        </td>
+    	<td align='center' width='30%'>
+         
+        </td>
+    </tr>
+    <tr>
+    <td align='center'>Reference</td>
+    <td align='center'>HDemucs</td>
+    <td align='center'>HD_pre</td>
+    </tr>
+    <tr>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_piano_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_HD_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0000931_10chans_HD_pre_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    </tr>
+    </table>
+</div>
+
+##### Case 3
+
+<div align='center'>
+<table style="margin: 0,auto; align:center; vertical-align:middle; border: none!important">
+    <tr>
+        <td align='center'> <b>Mixture</b> </td>
+        <td> <img src='./img/piano/spec/11591_mix_1.PNG'  alt='11591_mix_1' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>Reference</b> </td>
+        <td> <img src='./img/piano/spec/11591_piano_1.PNG'  alt='11591_piano_1' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='middle'> <b>ResUNetDecouple+</b> </td>
+        <td> <img src='./img/piano/spec/11591_Res_1.PNG'  alt='11591_Res_1' width='100%'></td>
+    </tr>
+    <tr>
+        <td align='center'> <b>Res_pre</b> </td>
+        <td> <img src='./img/piano/spec/11591_Res_pre_1.PNG'  alt='11591_Res_pre_1' width='100%'></td>
+    </tr>
+    <tr>
+        <td align='center'> <b>Res_tim_pre</b> </td>
+        <td> <img src='./img/piano/spec/11591_Res_fnt_1.PNG'  alt='11591_Res_fnt_1' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>HDemucs</b> </td>
+        <td> <img src='./img/piano/spec/11591_HD_1.PNG'  alt='11591_HD_1' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>HD_pre</b></td>
+        <td> <img src='./img/piano/spec/11591_HD_pre_1.PNG'  alt='11591_HD_pre_1' width='100%'></td>
+    </tr>
+</table>
+  
+  
+ 
+<table style="margin-left: auto; margin-right: auto; align:center; border: none!important; width: 100%">
+    <tr>
+        <td align='center'>Mixture</td>
+        <td align='center'>ResUNetDecouple+</td>
+        <td align='center'>Res_pre</td>
+    </tr>
+    <tr>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_mix_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_Res_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_Res_pre_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    </tr>
+	<tr>
+        <td align='center'>Res_fnt</td>
+        <td align='center'> </td>
+        <td align='center'> </td>
+    </tr>
+    <tr>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_Res_fnt_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+         
+        </td>
+    	<td align='center' width='30%'>
+         
+        </td>
+    </tr>
+    <tr>
+    <td align='center'>Reference</td>
+    <td align='center'>HDemucs</td>
+    <td align='center'>HD_pre</td>
+    </tr>
+    <tr>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_piano_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_HD_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_HD_pre_1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    </tr>
+    </table>
+</div>
+
+##### Case 4
+
+<div align='center'>
+<table style="margin: 0,auto; align:center; vertical-align:middle; border: none!important">
+    <tr>
+        <td align='center'> <b>Mixture</b> </td>
+        <td> <img src='./img/piano/spec/11591_mix_2.PNG'  alt='11591_mix_2' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>Reference</b> </td>
+        <td> <img src='./img/piano/spec/11591_piano_2.PNG'  alt='11591_piano_2' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='middle'> <b>ResUNetDecouple+</b> </td>
+        <td> <img src='./img/piano/spec/11591_Res_2.PNG'  alt='11591_Res_2' width='100%'></td>
+    </tr>
+    <tr>
+        <td align='center'> <b>Res_pre</b> </td>
+        <td> <img src='./img/piano/spec/11591_Res_pre_2.PNG'  alt='11591_Res_pre_2' width='100%'></td>
+    </tr>
+    <tr>
+        <td align='center'> <b>Res_tim_pre</b> </td>
+        <td> <img src='./img/piano/spec/11591_Res_fnt_2.PNG'  alt='11591_Res_fnt_2' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>HDemucs</b> </td>
+        <td> <img src='./img/piano/spec/11591_HD_2.PNG'  alt='11591_HD_2' width='100%'></td>
+    </tr>
+    <tr>
+      <td align='center'> <b>HD_pre</b></td>
+        <td> <img src='./img/piano/spec/11591_HD_pre_2.PNG'  alt='11591_HD_pre_2' width='100%'></td>
+    </tr>
+</table>
+  
+  
+ 
+<table style="margin-left: auto; margin-right: auto; align:center; border: none!important; width: 100%">
+    <tr>
+        <td align='center'>Mixture</td>
+        <td align='center'>ResUNetDecouple+</td>
+        <td align='center'>Res_pre</td>
+    </tr>
+    <tr>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_mix_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_Res_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_Res_pre_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    </tr>
+	<tr>
+        <td align='center'>Res_fnt</td>
+        <td align='center'> </td>
+        <td align='center'> </td>
+    </tr>
+    <tr>
+    	<td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_Res_fnt_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    	<td align='center' width='30%'>
+         
+        </td>
+    	<td align='center' width='30%'>
+         
+        </td>
+    </tr>
+    <tr>
+    <td align='center'>Reference</td>
+    <td align='center'>HDemucs</td>
+    <td align='center'>HD_pre</td>
+    </tr>
+    <tr>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_piano_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_HD_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+        <td align='center' width='30%'>
+        <audio controls>
+            <source src="./data/piano/0011591_10chans_HD_pre_2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        </td>
+    </tr>
+    </table>
+</div>
