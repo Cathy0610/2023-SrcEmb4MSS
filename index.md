@@ -45,6 +45,10 @@
         <td> <img src='./img/bass/spec/BrokenMan_mix_1.PNG'  alt='BrokenMan_mix_1' width='100%'></td>
     </tr>
     <tr>
+      <td align='center'> <b>Reference</b> </td>
+        <td> <img src='./img/bass/spec/BrokenMan_bass_1.PNG'  alt='BrokenMan_bass_1' width='100%'></td>
+    </tr>
+    <tr>
       <td align='middle'> <b>ResUNetDecouple+</b> </td>
         <td> <img src='./img/bass/spec/BrokenMan_Res_1.PNG'  alt='BrokenMan_Res_1' width='100%'></td>
     </tr>
@@ -67,10 +71,6 @@
     <tr>
       <td align='center'> <b>HD_fnt</b></td>
         <td> <img src='./img/bass/spec/BrokenMan_HD_fnt_1.PNG'  alt='BrokenMan_HD_fnt_1' width='100%'></td>
-    </tr>
-    <tr>
-      <td align='center'> <b>Reference</b> </td>
-        <td> <img src='./img/bass/spec/BrokenMan_bass_1.PNG'  alt='BrokenMan_bass_1' width='100%'></td>
     </tr>
 </table>
   
