@@ -1,1 +1,1 @@
-This is the directory of demo wavs.
+This is the directory for the demo wavs.
